@@ -25,27 +25,13 @@ $( document ).ready(function() {
     });
 
     $( "input[type=checkbox]" ).click(function() {
-      $(this).prop('checked', false);
+      debugger;
       var completeTask = $(this).parents().find("li")
+      $(this).remove();
       var newTask = completeTask.clone().appendTo(".complete-list");
       completeTask.remove();
       $("#complete").show();
-
-      $( "#complete" ).children().last().find("input[type=checkbox]").click(function() {
-        $(this).prop('checked', false);
-        var uncompleteTask = $(this).parents().find("li")
-        var newTask = uncompleteTask.clone().appendTo(".list");
-        uncompleteTask.remove();
-        // $("#complete").show();
-        $( "#list" ).children().last().find( "input[type=checkbox]" ).click(function() {
-          $(this).prop('checked', false);
-          var completeTask = $(this).parents().find("li")
-          var newTask = completeTask.clone().appendTo(".complete-list");
-          completeTask.remove();
-        });
-
       });
-    });
 
     event.preventDefault();
   });
