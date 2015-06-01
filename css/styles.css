@@ -2,3 +2,15 @@
   background-color: black;
   color: white;
 }
+
+.stretch {
+  width: 100%;
+}
+
+.form-inline .form-control {
+  width: 100%;
+}
+
+#to-do-list {
+  display: none;
+}
