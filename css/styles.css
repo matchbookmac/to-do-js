@@ -11,6 +11,6 @@
   width: 100%;
 }
 
-#to-do-list {
+#to-do-list, #complete {
   display: none;
 }

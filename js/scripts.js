@@ -14,17 +14,52 @@ $( document ).ready(function() {
       '<li>' +
         '<div class="checkbox">' +
           '<label>' +
-            '<input type="checkbox" value="true">' +
+            '<input type="checkbox" value=' + newTask.description + '>' +
           '</label>' +
           '<span class="task">' + newTask.description + ' by ' + newTask.dueDate + '</span>' +
         '</div>' +
       '</li>'
     );
 
-    event.preventDefault();
+    $(".list").children().last().click(function() {
+    });
 
+    $( "input[type=checkbox]" ).click(function() {
+      $(this).prop('checked', false);
+      var completeTask = $(this).parents().find("li")
+      var newTask = completeTask.clone().appendTo(".complete-list");
+      completeTask.remove();
+      $("#complete").show();
+
+      $( "#complete" ).children().last().find("input[type=checkbox]").click(function() {
+        $(this).prop('checked', false);
+        var uncompleteTask = $(this).parents().find("li")
+        var newTask = uncompleteTask.clone().appendTo(".list");
+        uncompleteTask.remove();
+        // $("#complete").show();
+        $( "#list" ).children().last().find( "input[type=checkbox]" ).click(function() {
+          $(this).prop('checked', false);
+          var completeTask = $(this).parents().find("li")
+          var newTask = completeTask.clone().appendTo(".complete-list");
+          completeTask.remove();
+        });
+
+      });
+    });
+
+    event.preventDefault();
   });
 
-  $("")
-
+  //
+  // var complete = function() {
+  //   debugger;
+  //   console.log($("input:checked"));
+  // };
+  // $("form#complete").submit(function(event) {
+  //   debugger;
+  //   event.preventDefault();
+  //   if (event.target.input.checked) {
+  //     console.log("yep");
+  //   }
+  // });
 });
